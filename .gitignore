@@ -24,3 +24,6 @@
 
 #vendor
 vendor/
+
+#macOS trash
+.DS_Store
