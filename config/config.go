@@ -9,9 +9,10 @@ import (
 
 //Config contain configuration options
 type Config struct {
-	Host string `json:"host"`
-	Port uint16 `json:"port"`
-	Log         `json:"log"`
+	Host  string `json:"host"`
+	Port  uint16 `json:"port"`
+	Log          `json:"log"`
+	Redis Redis  `json:"redis"`
 }
 
 //Log configuration options
@@ -21,6 +22,12 @@ type Log struct {
 	Format           string                `json:"format"`
 	DisableTimestamp bool                  `json:"disableTimeStamp"`
 	LogFile          logutil.FileLogConfig `json:"file"`
+}
+
+//Redis server configuration options
+type Redis struct {
+	Host string `json:"host"`
+	Port uint16 `json:"port"`
 }
 
 var defaultConfig = Config{
@@ -36,6 +43,10 @@ var defaultConfig = Config{
 			MaxDays:    0,
 			MaxBackups: 0,
 		},
+	},
+	Redis: Redis{
+		Host: "127.0.0.1",
+		Port: 6379,
 	},
 }
 

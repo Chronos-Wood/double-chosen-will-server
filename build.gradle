@@ -1,0 +1,8 @@
+plugins {
+    id 'com.github.blindpirate.gogradle' version '0.8.1'
+}
+
+golang {
+    packagePath = 'github.com/double-chosen-will-server' // 欲构建项目的path，不是项目的磁盘路径！
+}
+
